@@ -25,15 +25,19 @@ jobs:
             exit 1
           fi
 
+      - name: Delete GitHub Release
+        id: delete_release
+        uses: liudonghua123/delete-release-action@v1
+        with:
+          release_name: "latest"
+
       - name: Create GitHub Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: "resume-${{ github.run_number }}-${{ github.run_id }}"
-          release_name: "Resume Release #${{ github.run_number }}"
-          body: "Automated resume generation."
+          release_name: "latest"
           draft: false
           prerelease: false
 
