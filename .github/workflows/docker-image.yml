@@ -1,26 +1,48 @@
-name: Docker Image CI
+name: Build and Release Resume
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
-  compile:
-    name: Compile resume pdf
+  build:
+    name: Build Resume
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Run the build process with Docker
-        uses: addnab/docker-run-action@v3
+
+      - name: Run build.sh
+        run: make
+
+      - name: Check for resume.pdf
+        run: |
+          if [ ! -f resume.pdf ]; then
+            echo "resume.pdf not found!"
+            cat resume.log
+            exit 1
+          fi
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          image: thomasweise/docker-texlive-full:latest
-          options: -v ${{ github.workspace }}:/data
-          run: |
-            cd data
-            pdflatex sourabh_bajaj_resume.tex
-      - uses: stefanzweifel/git-auto-commit-action@v5
+          tag_name: "resume-${{ github.run_number }}-${{ github.run_id }}"
+          release_name: "Resume Release #${{ github.run_number }}"
+          body: "Automated resume generation."
+          draft: false
+          prerelease: false
+
+      - name: Upload resume.pdf to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          commit_message: Apply pdflatex changes
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./resume.pdf
+          asset_name: resume.pdf
+          asset_content_type: application/pdf
