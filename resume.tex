@@ -19,6 +19,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{soul}
 \input{glyphtounicode}
 
 
@@ -53,6 +54,8 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
+\setul{1pt}{.4pt}
+
 % Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
@@ -73,7 +76,7 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-6pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
@@ -109,9 +112,9 @@
 
 \begin{center}
     \textbf{\Large \scshape Jason Woodland} \\ \vspace{1pt}
-    \small +61 435 556 116 $|$ \href{mailto:Jason Woodland<me@jasonwoodland.com>}{\underline{me@jasonwoodland.com}} $|$ 
-    \href{https://linkedin.com/in/jasonwoodland}{\underline{linkedin.com/in/jasonwoodland}} $|$
-    \href{https://github.com/jasonwoodland}{\underline{github.com/jasonwoodland}}
+    \small +61 435 556 116 $|$ \href{mailto:Jason Woodland<me@jasonwoodland.com>}{\ul{me@jasonwoodland.com}} $|$ 
+    \href{https://linkedin.com/in/jasonwoodland}{\ul{linkedin.com/in/jasonwoodland}} $|$
+    \href{https://github.com/jasonwoodland}{\ul{github.com/jasonwoodland}}
 \end{center}
 
 \section{Experience}
@@ -119,22 +122,21 @@
 
     \resumeSubheading
       {Full Stack Engineer}{Jan. 2021 -- Oct. 2024}
-      {Strive Limited}{Tokyo, Japan (Remote)}
+      {Strive Limited --- \href{https://strive.limited/}{\ul{strive.limited}}}{Tokyo, Japan (Remote)}
       \resumeItemListStart
         \resumeItem{Developed SaaS-scale job management platform for safety check industry. Managing 7000+ property compliances}
         \resumeItem{Executed zero-downtime business data migration to new SaaS-platform}
-        \resumeItem{Developed GraphQL web server using Node/PostgreSQL/Redis/etcd and deployed to Kubernetes cluster}
+        \resumeItem{Developed GraphQL web server using Node/PostgreSQL/Redis/etcd}
 	\resumeItem{Developed horizontally scalable cron scheduling notification system}
-	\resumeItem{Develop AWS infrastructure using Terraform}
-	\resumeItem{Built, deployed and maintained SaaS Kubernetes cluster}
-	\resumeItem{CI/CD Deployment to AWS ECS with GitHub Actions}
-	\resumeItem{Developed custom integrations for 3rd party APIs (Xero, Stripe, AWS S3, Asana, SafetyCulture, iAuditor/GeoOp, Twilio, SendGrid)}
-	\resumeItem{Test driven development using Jest (unit/integration testing)}
+	\resumeItem{Developed AWS infrastructure using Terraform, set-up CI/CD environment using GitHub Action}
+	\resumeItem{Deployed and designed Kubernetes clusters with CI/CD (staging environments, GitHub Actions)}
+	\resumeItem{Developed 3rd party API integrations (Xero, Stripe, AWS S3, Asana, SafetyCulture, Twilio, SendGrid)}
+	\resumeItem{Practiced test-driven development using Jest (unit/integration testing)}
       \resumeItemListEnd
       
     \resumeSubheading
       {Senior Sofware Engineer}{May 2022 -- Jan. 2023}
-      {Satellite.im}{Maryland, United States (Remote)}
+      {Satellite.im --- \href{https://satellite.im/}{\ul{satellite.im}}}{Maryland, United States (Remote)}
       \resumeItemListStart
 	\resumeItem{Designed and developed extensive additions to an existing cross-platform, open source decentralized chat/video calling application utilizing IPFS, Typescript, Vue.js, Nuxt.js, Capacitor, Rust, Dioxus (Rust web app framework)}
 	\resumeItem{Lead a team to refactor cross-platform app UI with a strong emphasis on performance, accessibility, and UX}
@@ -145,51 +147,41 @@
 
     \resumeSubheading
       {Systems Engineer}{Oct. 2020 -- May 2022}
-      {ispec inc.}{Tokyo, Japan (Remote)}
+      {ispec inc. --- \href{https://ispec.tech/}{\ul{ispec.tech}}}{Tokyo, Japan (Remote)}
       \resumeItemListStart
 	\resumeItem{Developed GraphQL, REST \& WebSocket servers written in Go}
 	\resumeItem{Practiced clean code architecture and software design principles. Domain-driven design and DI design patterns}
 	\resumeItem{Developed front end web applications using Nuxt, React \& Angular}
 	\resumeItem{Worked with Docker, Docker Compose, makefile. E2E testing using Cypress}
-	\resumeItem{Deployed numerous projects to Amazon ECS/Fargate with Terraform; CI/CD Deployment to AWS ECS using CircleCI/GitHub Actions}
+	\resumeItem{Deployed to Amazon ECS/Fargate with Terraform; set-up CI/CD with ECS using CircleCI/GitHub Actions}
 	\resumeItem{Collaborated with large teams using GitHub/ZenHub; contributed to open-source monorepo}
       \resumeItemListEnd
 
     \resumeSubheading
       {Web Developer}{Mar. 2019 -- Oct 2020}
-      {Spicy Web}{Melbourne, Australia}
+      {Spicy Web --- \href{https://spicyweb.com.au/}{\ul{spicyweb.com.au}}}{Melbourne, Australia}
       \resumeItemListStart
 	\resumeItem{Brought website designs from wireframe to completion and deployment using Craft CMS 3 (PHP, Twig, Yii Framework, JavaScript, webpack, Git)}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
-% \section{Projects}
-%     \resumeSubHeadingListStart
-%       \resumeProjectHeading
-%           {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
-%           \resumeItemListStart
-%             \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
-%             \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
-%             \resumeItem{Visualized GitHub data to show collaboration}
-%             \resumeItem{Used Celery and Redis for asynchronous tasks}
-%           \resumeItemListEnd
-%       \resumeProjectHeading
-%           {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
-%           \resumeItemListStart
-%             \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
-%             \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
-%             \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
-%             \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
-%           \resumeItemListEnd
-%     \resumeSubHeadingListEnd
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Corella} \emph{SaaS Job Management Platform --- \href{https://demo.corella.app/}{\ul{demo.corella.app}}}}{Feb 2024 -- Present}
+          \resumeItemListStart
+	    \resumeItem{Developed a scalable platform managing 7,000+ property compliances, with API integrations, Kubernetes-hosted GraphQL server, CI/CD automation, and AWS infrastructure.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
-\section{Technical Skills}
+\section{Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: TypeScript (JavaScript, Node.js, Bun.js), Go, Kubernetes (Helm, Kustomize, Linode LKE), Terraform (AWS), SQL (PostgreSQL/MySQL/SQLite), PL/pgSQL, C (unix/STM32), Objective-C, PHP (LAMP/Yii/Craft CMS), HTML, CSS (SCSS), Python, Kotlin, Rust, Unix shell script (bash/zsh), awk, Lua, Vimscript} \\
-     \textbf{Frameworks}{: Next.js, Nuxt, React, React Native, Vue.js, Angular, Tailwind, GraphQL, Relay, Redux, gorm, knex, Objection.js, Dioxus (Rust framework), join-monster, ActiveRecord, libssl, Craft CMS (Yii PHP framework)} \\
-     \textbf{Developer Tools}{: AWS, Linode (LKE), Terraform, kubectl, minicube, Grafana, Prometheus, GitHub Projects, GitHub Actions, CircleCI, Docker, Docker Compose, PostgreSQL, MySQL, Redis, pgadmin, OpenSSH, git, Neovim, Xcode, Android Studio, Ollama, Jest, Storybook, Cypress, Apache, Debian Linux, macOS, FreeBSD, Illustrator, InDesign} \\
+     \textbf{Languages}{: English (Native), Chinese (Progressing toward HSK3 Certification)} \\
+     \textbf{Programming Languages}{: TypeScript (JavaScript, Node.js, Bun.js), Go, Kubernetes (Helm, Kustomize, Linode LKE), Terraform (AWS), SQL (PostgreSQL/MySQL/SQLite), PL/pgSQL, C (unix/STM32), Objective-C, PHP (LAMP/Yii/Craft CMS), HTML, CSS (SCSS), Python, Kotlin, Rust, Unix shell script (bash/zsh), awk, Lua, Vimscript} \\
+     \textbf{Frameworks}{: Next.js, Nuxt, React, React Native, Vue.js, Angular, Tailwind, GraphQL, Relay, Redux, gorm, knex, Objection.js, SwiftUI, Dioxus (Rust framework), join-monster, ActiveRecord, libssl, Craft CMS (Yii PHP framework)} \\
+     \textbf{Developer Tools}{: AWS, Linode (LKE), Terraform, kubectl, minicube, Grafana, Prometheus, GitHub Projects, GitHub Actions, CircleCI, Docker, Docker Compose, PostgreSQL, MySQL, Redis, pgadmin, OpenSSH, git, Neovim, Swift, Xcode, Android Studio, Ollama, Jest, Storybook, Cypress, Debian, macOS, FreeBSD, Illustrator, InDesign} \\
     }}
  \end{itemize}
 
@@ -199,14 +191,5 @@
     {Chisholm Institute}{Melbourne, Australia}
     {Certificate IV in Web-Based Technologies: Graduated with HDs and Recognized Prior Learning}{Sept. 2014}
 \resumeSubHeadingListEnd
-
-
-\section{Languages}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{English}{: Native speaker} \\
-     \textbf{Chinese}{: Studying conversational Chinese abroad, progressing toward HSK 3 certification} \\
-    }}
- \end{itemize}
 
 \end{document}
